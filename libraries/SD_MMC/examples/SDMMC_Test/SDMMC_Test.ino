@@ -172,6 +172,8 @@ void testFileIO(fs::FS &fs, const char * path){
 
 void setup(){
     Serial.begin(115200);
+    SD_MMC.setPins(14, 15, 2, 4, 12, 13); 
+    // clk, cmd, d0, d1, d2, d3 - Note that pins cannot be changed on ESP32
     if(!SD_MMC.begin()){
         Serial.println("Card Mount Failed");
         return;
